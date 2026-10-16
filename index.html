@@ -112,6 +112,7 @@
         .nav-links {
             display: flex;
             gap: 2.5rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -121,6 +122,11 @@
 
         .nav-links a:hover {
             color: var(--primary-pink);
+        }
+
+        /* Hide the Collab button inside nav-links on desktop */
+        .nav-links .btn-primary {
+            display: none;
         }
 
         .btn-primary {
@@ -849,12 +855,16 @@
                 display: block;
                 padding: 0.5rem 0;
             }
+            /* Show the Collab button inside mobile menu */
+            .nav-links .btn-primary {
+                width: 80%;
+                margin: 1rem auto;
+                display: inline-block !important;
+            }
 
-            /* Show the right-side Collab button on mobile */
+            /* HIDE the right-side Collab Now button on mobile */
             nav > .btn-primary {
-                display: block;
-                padding: 0.5rem 1.2rem;
-                font-size: 0.85rem;
+                display: none;
             }
 
             /* Hero Section */
@@ -958,10 +968,6 @@
             .logo {
                 font-size: 1.4rem;
             }
-            nav > .btn-primary {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.75rem;
-            }
         }
     </style>
 </head>
@@ -981,9 +987,11 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
+            <!-- Collab button inside menu - Only visible on mobile -->
+            <li><a href="#contact" class="btn-primary">Collab Now</a></li>
         </ul>
         
-        <!-- Single Collab Button on the Right Side -->
+        <!-- Single Collab Button on the Right Side (Only visible on desktop) -->
         <a href="#contact" class="btn-primary">Collab Now</a>
     </nav>
 
