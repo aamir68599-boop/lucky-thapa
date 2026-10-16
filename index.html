@@ -156,6 +156,18 @@
             color: var(--white);
         }
 
+        /* --- Mobile Menu Toggle (Hidden on Desktop) --- */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary-pink);
+            cursor: pointer;
+        }
+
         /* --- Hero Section --- */
         .hero {
             padding: 10rem 0 6rem 0;
@@ -763,11 +775,16 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
 
-        /* --- Responsive Design --- */
+        /* =========================================
+           RESPONSIVE DESIGN (Mobile & Tablet)
+           ========================================= */
+        
+        /* Tablet & Small Laptops (max-width: 992px) */
         @media (max-width: 992px) {
             .hero .container {
                 flex-direction: column;
                 text-align: center;
+                padding-top: 2rem;
             }
             .hero-content h1 {
                 font-size: 3rem;
@@ -778,32 +795,151 @@
             .hero-tags, .hero-buttons {
                 justify-content: center;
             }
+            .hero-image img {
+                max-width: 350px;
+                margin-top: 2rem;
+            }
             .contact-container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
+        /* Mobile Devices (max-width: 768px) */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .section-padding {
+                padding: 4rem 0;
             }
-            .stats-bar {
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            /* Navbar Mobile Menu */
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
                 flex-direction: column;
-                gap: 1.5rem;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                z-index: 999;
+            }
+            .menu-toggle:checked ~ .nav-links {
+                left: 0;
+            }
+            nav .btn-primary {
+                display: none; /* Hide 'Collab Now' button on mobile navbar */
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 7rem 0 4rem 0;
             }
             .hero-content h1 {
                 font-size: 2.5rem;
             }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Stats Bar - 2x2 Grid */
+            .stats-bar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+                margin-top: -2rem;
+            }
+            .stat-item h3 {
+                font-size: 1.8rem;
+            }
+            .stat-item p {
+                font-size: 0.75rem;
+            }
+
+            /* Services */
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Brands Marquee */
+            .brands-track span {
+                font-size: 1.2rem;
+                margin: 0 1.5rem;
+            }
+
+            /* Video Portfolio */
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Testimonials */
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Contact Section */
+            .contact-info h2 {
+                font-size: 2.2rem;
+            }
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            /* Footer */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                padding-bottom: 2rem;
             }
             .footer-bottom .container {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            /* WhatsApp Button */
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Very Small Phones (max-width: 480px) */
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            .stat-item h3 {
+                font-size: 1.5rem;
+            }
+            .contact-info h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -813,14 +949,22 @@
     <!-- Navigation -->
     <nav>
         <div class="logo">Lucky Thapa</div>
+        
+        <!-- Mobile Menu Toggle -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
+        
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
+            <!-- Mobile Collab Button inside menu -->
+            <li><a href="#contact" class="btn-primary" style="display: inline-block;">Collab Now</a></li>
         </ul>
-        <a href="#contact" class="btn-primary">Collab Now</a>
+        
+        <a href="#contact" class="btn-primary desktop-btn">Collab Now</a>
     </nav>
 
     <!-- Hero Section -->
