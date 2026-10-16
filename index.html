@@ -156,7 +156,7 @@
             color: var(--white);
         }
 
-        /* --- Mobile Menu Toggle (Hidden on Desktop) --- */
+        /* --- Mobile Menu Toggle (Hidden by default) --- */
         .menu-toggle {
             display: none;
         }
@@ -823,14 +823,15 @@
             }
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 60px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 70px);
+                height: calc(100vh - 60px);
                 background: var(--white);
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
+                padding-top: 3rem;
                 gap: 2rem;
                 transition: var(--transition);
                 box-shadow: 0 10px 15px rgba(0,0,0,0.05);
@@ -839,8 +840,21 @@
             .menu-toggle:checked ~ .nav-links {
                 left: 0;
             }
-            nav .btn-primary {
-                display: none; /* Hide 'Collab Now' button on mobile navbar */
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                display: block;
+                padding: 0.5rem 0;
+            }
+
+            /* Show the right-side Collab button on mobile */
+            nav > .btn-primary {
+                display: block;
+                padding: 0.5rem 1.2rem;
+                font-size: 0.85rem;
             }
 
             /* Hero Section */
@@ -941,6 +955,13 @@
             .contact-info h2 {
                 font-size: 1.8rem;
             }
+            .logo {
+                font-size: 1.4rem;
+            }
+            nav > .btn-primary {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -960,11 +981,10 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
-            <!-- Mobile Collab Button inside menu -->
-            <li><a href="#contact" class="btn-primary" style="display: inline-block;">Collab Now</a></li>
         </ul>
         
-        <a href="#contact" class="btn-primary desktop-btn">Collab Now</a>
+        <!-- Single Collab Button on the Right Side -->
+        <a href="#contact" class="btn-primary">Collab Now</a>
     </nav>
 
     <!-- Hero Section -->
