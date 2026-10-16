@@ -367,85 +367,50 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* --- Portfolio Section --- */
-        .portfolio-grid {
+        /* --- Video Portfolio Section --- */
+        .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
-        .portfolio-card {
-            position: relative;
+        .video-card {
+            background-color: var(--white);
             border-radius: 20px;
             overflow: hidden;
-            height: 400px;
-            cursor: pointer;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .portfolio-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .portfolio-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: var(--white);
-            transform: translateY(20px);
-            opacity: 0;
             transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
 
-        .portfolio-card:hover .portfolio-overlay {
-            transform: translateY(0);
-            opacity: 1;
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        .portfolio-overlay h4 {
-            color: var(--white);
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+        .video-card video {
+            width: 100%;
+            display: block;
+            background-color: #000;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .portfolio-overlay p {
+        .video-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .video-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .video-info p {
             font-size: 0.9rem;
-            color: var(--soft-pink);
+            color: var(--primary-pink);
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            width: 60px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-pink);
-            font-size: 1.5rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .portfolio-card:hover .play-btn {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
+            font-weight: 500;
         }
 
         /* --- Testimonials --- */
@@ -597,7 +562,7 @@
             height: 120px;
         }
 
-        /* --- NEW FOOTER STYLES --- */
+        /* --- FOOTER STYLES --- */
         footer {
             background-color: #111111;
             color: #cccccc;
@@ -773,6 +738,31 @@
             color: var(--primary-pink);
         }
 
+        /* --- WhatsApp Float Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
             .hero .container {
@@ -850,7 +840,6 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- YAHAN AAPKI IMAGE LAGI HAI -->
                 <img src="https://lucky-thapa.aamir68599.workers.dev/thapa.jpg" alt="Lucky Thapa">
             </div>
         </div>
@@ -926,62 +915,33 @@
         </div>
     </div>
 
-    <!-- Portfolio Section -->
+    <!-- Featured Collaborations (Video Section) -->
     <section class="section-padding" id="portfolio" style="background-color: var(--bg-color);">
         <div class="container">
             <div class="section-title">
                 <h2>Featured <span>Collaborations</span></h2>
                 <p>A glimpse of my recent work with amazing brands in fashion, beauty, and lifestyle.</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Saree Collab">
-                    <div class="play-btn"><i class="fas fa-play"></i></div>
-                    <div class="portfolio-overlay">
-                        <h4>Elegant Saree Styling</h4>
-                        <p>Fashion Collaboration</p>
+            <div class="video-grid">
+                
+                <!-- Video Collaboration 1 -->
+                <div class="video-card">
+                    <video src="https://lucky-thapa.aamir68599.workers.dev/collab%201.mp4" controls playsinline loop muted></video>
+                    <div class="video-info">
+                        <h4>Fashion & Lifestyle Campaign</h4>
+                        <p>Brand Collaboration</p>
                     </div>
                 </div>
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Makeup Collab">
-                    <div class="play-btn"><i class="fas fa-play"></i></div>
-                    <div class="portfolio-overlay">
-                        <h4>Everyday Makeup Routine</h4>
-                        <p>Cosmetics Brand</p>
+
+                <!-- Video Collaboration 2 -->
+                <div class="video-card">
+                    <video src="https://lucky-thapa.aamir68599.workers.dev/collab%202.mp4" controls playsinline loop muted></video>
+                    <div class="video-info">
+                        <h4>Beauty & Skincare Promo</h4>
+                        <p>Brand Collaboration</p>
                     </div>
                 </div>
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Skincare Collab">
-                    <div class="play-btn"><i class="fas fa-play"></i></div>
-                    <div class="portfolio-overlay">
-                        <h4>Skincare Essentials</h4>
-                        <p>Brand Promotion</p>
-                    </div>
-                </div>
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lifestyle Vlog">
-                    <div class="play-btn"><i class="fas fa-play"></i></div>
-                    <div class="portfolio-overlay">
-                        <h4>Day in My Life</h4>
-                        <p>Lifestyle Vlog</p>
-                    </div>
-                </div>
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1512496015851-a1dc8a47159c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Jewelry Collab">
-                    <div class="play-btn"><i class="fas fa-play"></i></div>
-                    <div class="portfolio-overlay">
-                        <h4>Festive Jewelry Lookbook</h4>
-                        <p>Jewelry Brand</p>
-                    </div>
-                </div>
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Haircare Collab">
-                    <div class="play-btn"><i class="fas fa-play"></i></div>
-                    <div class="portfolio-overlay">
-                        <h4>Haircare Routine</h4>
-                        <p>Beauty Brand</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -1084,7 +1044,7 @@
         </div>
     </section>
 
-    <!-- ================= NEW FOOTER ================= -->
+    <!-- ================= FOOTER ================= -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1148,6 +1108,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <!-- IMPORTANT: Replace '919999999999' with Lucky Thapa's actual WhatsApp number -->
+    <a href="https://wa.me/919999999999?text=Hi%20Lucky,%20I%20am%20interested%20in%20collaborating%20with%20you!" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
